@@ -1,0 +1,37 @@
+print("before a1 hit true count:", self.trueCount1)
+                    if int(self.ai1Value)>=15 and int(self.ai1Value)<=16 and self.trueCount1<-0.5:
+                        #HIT WITH CHANCE
+                        self.HitCard = self.deck[0]
+                        self.deck.pop(0)
+                        self.inv2.append(self.HitCard)
+                        self.playedCardsAI1.append(self.HitCard)
+                        self.ai1Hit = True
+                        print("ai1 hit1")
+                        self.values(self.inv1, self.inv2, self.inv3, self.inv4)
+                        
+                    elif int(self.ai1Value)==15 or int(self.ai1Value)==16:
+                        print("ai1 is standing 1")
+                        self.ai1Hand = True
+                        
+                    if int(self.ai1Value)<=14:
+                        #HIT
+                        self.HitCard = self.deck[0]
+                        self.deck.pop(0)
+                        self.inv2.append(self.HitCard)
+                        self.playedCardsAI1.append(self.HitCard)
+                        self.ai1Hit = True
+                        self.values(self.inv1, self.inv2, self.inv3, self.inv4)
+                        print("ai1 hit2")
+                        
+                    if int(self.ai1Value)>15 and int(self.ai1Value)<=21:
+                        #A1 STANDING
+                        print("a1 is standing 2")
+                        self.ai1Hand = True
+                    
+                    if int(self.ai1Value)>21:
+                        #AI BUST
+                        print("ai1 bust")
+                        self.ai1State = "Bust"
+                        self.ai1Hand = True
+                    self.values(self.inv1, self.inv2, self.inv3, self.inv4)
+                    self.ai1Counter = self.ai1Counter+1
